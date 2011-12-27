@@ -1,6 +1,7 @@
+from urllib2 import urlopen
 from django.core.management.base import BaseCommand, CommandError
 
-from imdb.models import ScrapeFolder, NameWordsBlackList, Movie
+from imdb.models import ScrapeFolder, NameWordsBlackList, Movie, ScrapeSettings
 import os
 
 
@@ -14,12 +15,18 @@ class Command(BaseCommand):
             path = folder.folder_location
             titles += os.listdir(path)
 
+        test = None
         for bad_title in titles:
             good_title = self.remove_crap(bad_title)
             self.stdout.write('%s \n' % (good_title))
-            movie, created = Movie.objects.get_or_create(title=good_title)
-            if created or movie.rating is None:
-                self.populate_movie(movie)
+            if not test:
+                test = good_title
+#            movie, created = Movie.objects.get_or_create(title=good_title)
+#            if created or movie.rating is None:
+#                self.populate_movie(movie)
+
+        self.stdout.write("Attempting to do api call for: %s\n" % test)
+        self.get_imdb_json(test)
 
 
     def remove_crap(self, words):
@@ -79,5 +86,16 @@ class Command(BaseCommand):
         return w
 
 
-    def populate_movie(self):
-        pass
+    def populate_movie(self, movie):
+        if not movie.imbdb_url:
+            json_info = self.get_imdb_json(movie.title)
+
+
+    def get_imdb_json(self, title):
+        args = "?t=%s" % title
+        api_url = ScrapeSettings.objects.all()[0].api_url
+        call_url = api_url + args
+        self.stdout.write("Calling %s\n" % call_url)
+        result = urlopen(call_url)
+        lines = result.readlines()
+        self.stdout.write("Results:\n %s" % lines)

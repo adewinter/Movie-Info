@@ -9,6 +9,8 @@ class Movie(models.Model):
     year = models.IntegerField(max_length=4, blank=True, null=True)
     imbdb_url = models.URLField(blank=True, null=True)
     summary = models.TextField(blank=True, null=True)
+    image_url = models.URLField(blank=True, null=True)
+    last_updated = models.DateTimeField(blank=True, null=True)
 
     def __unicode__(self):
         return "Movie: %s, Rating: %s/5" % (self.title, self.rating)
