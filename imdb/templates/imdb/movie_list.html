@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Movie List</title>
+</head>
+<body>
+Table of Movies:
+<br />
+    <table>
+        <thead>
+            <th>Name</th>
+            <th>Rating</th>
+            <th>Summary</th>
+            <th>Year</th>
+        </thead>
+        <tbody>
+            {% for movie in movies %}
+            <tr>
+                <td>{{ movie.title }}</td>
+                <td>{{ movie.rating }}</td>
+                <td>{{ movie.summary }}</td>
+                <td>{{ movie.year }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>
