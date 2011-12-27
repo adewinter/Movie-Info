@@ -9,7 +9,7 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'kim_jono_il.views.home', name='home'),
     # url(r'^kim_jono_il/', include('kim_jono_il.foo.urls')),
-
+    (r'^', include('imdb.urls')),
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 

@@ -6,17 +6,20 @@ class Movie(models.Model):
     """
     title = models.CharField(max_length=300)
     rating = models.IntegerField(max_length=2, blank=True, null=True)
-    year = models.IntegerField(max_length=4, blank=True, null=True)
-    imbdb_url = models.URLField(blank=True, null=True)
+    year = models.DecimalField(max_digits=10, decimal_places=2,blank=True, null=True)
+    imdb_url = models.URLField(blank=True, null=True)
     summary = models.TextField(blank=True, null=True)
     image_url = models.URLField(blank=True, null=True)
     last_updated = models.DateTimeField(blank=True, null=True)
+    imdb_title = models.CharField(max_length=255, blank=True, null=True)
+    actors = models.CharField(max_length=255, blank=True, null=True)
+    folder_url = models.CharField(max_length=350, blank=True, null=True)
 
     def __unicode__(self):
-        return "Movie: %s, Rating: %s/5" % (self.title, self.rating)
+        return "Movie: %s, Rating: %s/10" % (self.title, self.rating)
 
 class ScrapeSettings(models.Model):
-    api_url = models.URLField(help_text="IMDB API URL")
+    api_url = models.URLField(help_text="API URL")
     update_frequency = models.IntegerField(help_text="Minutes between checking for updates")
 
 class ScrapeFolder(models.Model):

@@ -17,7 +17,8 @@ Table of Movies:
         <tbody>
             {% for movie in movies %}
             <tr>
-                <td>{{ movie.title }}</td>
+                <td><img src="{{ movie.image_url }}"/></td>
+                <td><a href="{{ movie.imdb_url}}">{{ movie.title }}</a></td>
                 <td>{{ movie.rating }}</td>
                 <td>{{ movie.summary }}</td>
                 <td>{{ movie.year }}</td>

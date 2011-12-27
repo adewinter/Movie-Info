@@ -12,3 +12,5 @@ DATABASES = {
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
 }
+
+ROTTEN_TOMATOES_API_KEY = 'j4a8mjyjuw3cg9snvq5khesx'
