@@ -1,4 +1,11 @@
+import logging
+import os
+import urllib
+from django.core.files.base import File
 from django.db import models
+import urlparse
+
+logging.getLogger(__name__)
 
 # Create your models here.
 class Movie(models.Model):
@@ -10,6 +17,7 @@ class Movie(models.Model):
     imdb_url = models.URLField(blank=True, null=True)
     summary = models.TextField(blank=True, null=True)
     image_url = models.URLField(blank=True, null=True)
+    image = models.ImageField(upload_to="movies/", blank=True, null=True)
     last_updated = models.DateTimeField(blank=True, null=True)
     imdb_title = models.CharField(max_length=255, blank=True, null=True)
     actors = models.CharField(max_length=255, blank=True, null=True)
@@ -17,6 +25,21 @@ class Movie(models.Model):
 
     def __unicode__(self):
         return "Movie: %s, Rating: %s/10" % (self.title, self.rating)
+
+    def cache(self):
+        """Store image locally if we have a URL"""
+        if self.image or not self.image_url or self.image_url.lower() == 'n/a':
+            return
+        
+        logging.info("Caching Image for Movie: %s... URL: %s" % (self.title, self.image_url))
+        result, headers = urllib.urlretrieve(self.image_url)
+        logging.debug('HEADERS: %s' % headers)
+        logging.info("Successfully downloaded image for %s" % self.title)
+        f = File(open(result, 'rb')) #ensure opening as binary!
+        image_name = os.path.basename(self.image_url)
+        self.image.save(image_name, f)
+        logging.info("Saved Image for Movie: %s" % self.title)
+        self.save()
 
 class ScrapeSettings(models.Model):
     api_url = models.URLField(help_text="API URL")

@@ -23,20 +23,23 @@ class Command(BaseCommand):
             self.stdout.write('Found folder: %s\n' % folder.folder_location)
             logging.debug('Found folder: %s' % folder.folder_location)
             path = folder.folder_location
-            titles += os.listdir(path)
-            for title in titles:
-                paths.append('%s' % os.path.join(path,title))
+            for title in os.listdir(path):
+                titles.append((title, os.path.join(path,title)))
 
-        for bad_title in titles:
+        for title in titles:
+            bad_title = title[0]
+            location = title[1]
             good_title = self.remove_crap(bad_title)
 
             movie, created = Movie.objects.get_or_create(title=good_title)
             if created or movie.rating is None:
-                movie.folder_url = paths[titles.index(bad_title)]
+                movie.folder_url = location
                 self.stdout.write('Cleaning up title %s => %s, path: %s \n' % (bad_title, good_title, movie.folder_url))
                 logging.debug('Cleaning up title %s => %s, path: %s ' % (bad_title, good_title, movie.folder_url))
-
                 self.populate_movie(movie)
+                ##Cache the thumbnail image locally
+                movie.cache()
+                movie.save()
 
 
         self.stdout.write('Checking for dead/deleted movies...\n')

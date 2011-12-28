@@ -2,3 +2,5 @@
 *.pyc
 *.sqlite3
 logs/
+media/
+static_media/

@@ -7,6 +7,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
+
     # url(r'^$', 'kim_jono_il.views.home', name='home'),
     # url(r'^kim_jono_il/', include('kim_jono_il.foo.urls')),
     (r'^', include('imdb.urls')),
@@ -16,3 +17,11 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
 )
+
+
+if settings.DEBUG:
+    urlpatterns += patterns('',
+        url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
+            'document_root': settings.MEDIA_ROOT,
+        }),
+   )
