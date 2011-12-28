@@ -1,0 +1,12 @@
+img {
+    width: 150px;
+}
+
+/*tr, td, thead, tbody, th{*/
+    /*border:  2px solid gray;*/
+/*}*/
+
+table {
+    width: 950px;
+    margin: auto;
+}

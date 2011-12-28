@@ -5,8 +5,8 @@ class Movie(models.Model):
     """
     """
     title = models.CharField(max_length=300)
-    rating = models.IntegerField(max_length=2, blank=True, null=True)
-    year = models.DecimalField(max_digits=10, decimal_places=2,blank=True, null=True)
+    rating = models.DecimalField(max_digits=3, decimal_places=2, blank=True, null=True)
+    year = models.IntegerField(max_length=4,blank=True, null=True)
     imdb_url = models.URLField(blank=True, null=True)
     summary = models.TextField(blank=True, null=True)
     image_url = models.URLField(blank=True, null=True)

@@ -3,16 +3,32 @@
 <html>
 <head>
     <title>Movie List</title>
+    <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}stylesheets/imdb.css" >
+    <script src="{{ STATIC_URL }}js/jquery-1.7.1.min.js"></script>
+    <script src="{{ STATIC_URL }}js/jquery.tablesorter.min.js"></script>
+    <script>
+        $(document).ready(
+            function() {
+                $("table#movies").tablesorter({ sortList: [[1,0]] });
+            }
+        );
+    </script>
+
 </head>
 <body>
 Table of Movies:
 <br />
-    <table>
+    <table id="movies" class="bordered-table zebra-striped">
         <thead>
-            <th>Name</th>
-            <th>Rating</th>
-            <th>Summary</th>
-            <th>Year</th>
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Rating</th>
+                <th>Summary</th>
+                <th>Year</th>
+                <th>File Path</th>
+            </tr>
         </thead>
         <tbody>
             {% for movie in movies %}
@@ -22,6 +38,7 @@ Table of Movies:
                 <td>{{ movie.rating }}</td>
                 <td>{{ movie.summary }}</td>
                 <td>{{ movie.year }}</td>
+                <td>{{ movie.folder_url }}</td>
             </tr>
             {% endfor %}
         </tbody>
