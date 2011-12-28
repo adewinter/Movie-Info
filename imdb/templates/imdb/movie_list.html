@@ -7,15 +7,21 @@
     <link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}stylesheets/imdb.css" >
     <script src="{{ STATIC_URL }}js/jquery-1.7.1.min.js"></script>
     <script src="{{ STATIC_URL }}js/jquery.tablesorter.min.js"></script>
+    <script src="{{ STATIC_URL }}js/jquery.uitablefilter.js"></script>
     <script>
         $(document).ready(
             function() {
                 $("table#movies").tablesorter({ sortList: [[1,0]] });
+                var movie_table = $("#movies")
+                $("#input_filter").keyup(function() {
+                    console.log('asd')
+                    $.uiTableFilter( movie_table, this.value, "Name");
+                })
             }
 
-            $('#refresh-movies').click(function (e) {
-                alert('This operation may take a few minutes! Please be patient!')
-            })
+            
+
+
         );
     </script>
 
@@ -27,30 +33,34 @@
 <br />
 Table of Movies:
 <br />
-    <table id="movies" class="bordered-table zebra-striped">
-        <thead>
-            <tr>
-                <th>Image</th>
-                <th>Name</th>
-                <th>Rating</th>
-                <th>Summary</th>
-                <th>Year</th>
-                <th>File Path</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for movie in movies %}
-            <tr>
-                <td>{% if movie.image %}<img src="{{ movie.image.url }}"/>{% endif %}</td>
-                <td><a href="{{ movie.imdb_url}}">{{ movie.title }}</a></td>
-                <td>{{ movie.rating }}</td>
-                <td>{{ movie.summary }}</td>
-                <td>{{ movie.year }}</td>
-                <td>{{ movie.folder_url }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-
+    <div id="movies_holder">
+        <div id="filter_div">
+            Filter: <input id="input_filter" />
+        </div>
+        <table id="movies" class="bordered-table zebra-striped">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Rating</th>
+                    <th>Summary</th>
+                    <th>Year</th>
+                    <th>File Path</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for movie in movies %}
+                <tr>
+                    <td>{% if movie.image %}<img src="{{ movie.image.url }}"/>{% endif %}</td>
+                    <td><a href="{{ movie.imdb_url}}">{{ movie.title }}</a></td>
+                    <td>{{ movie.rating }}</td>
+                    <td>{{ movie.summary }}</td>
+                    <td>{{ movie.year }}</td>
+                    <td>{{ movie.folder_url }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

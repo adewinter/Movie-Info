@@ -10,3 +10,8 @@ table {
     width: 950px;
     margin: auto;
 }
+
+
+#filter_div {
+    margin-left:150px;
+}
