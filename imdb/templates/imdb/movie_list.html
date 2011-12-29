@@ -27,9 +27,18 @@
 
 </head>
 <body>
-<a href="refresh-movies/" id="refresh-movies">Refresh Movies</a> : Checks for new movies and Deletes dead links (e.g. folder does not exist)
+<div id="heading">
+    <h1>{{ page_title }}</h1>
+</div>
+<a href="/refresh-movies/" id="refresh-movies">Refresh Movies</a> : Checks for new movies and Deletes dead links (e.g. folder does not exist)
 <br />
 <a href="admin/">Admin View</a> : Add more folders to scan for movies, change settings, modify movie info.
+<br />
+Show Movies From:
+{% for folder in folders %}<a href="/showfolder/{{ folder.id }}">{{ folder.folder_name }}</a> :: {% endfor %}
+<a href="/">All</a>
+<br />
+Number of Movies: {{ num_movies }}
 <br />
 Table of Movies:
 <br />

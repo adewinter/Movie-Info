@@ -24,16 +24,17 @@ class Command(BaseCommand):
             logging.debug('Found folder: %s' % folder.folder_location)
             path = folder.folder_location
             for title in os.listdir(path):
-                titles.append((title, os.path.join(path,title)))
+                titles.append((title, os.path.join(path,title), folder))
 
         for title in titles:
             bad_title = title[0]
             location = title[1]
             good_title = self.remove_crap(bad_title)
-
+            folder = title[2]
             movie, created = Movie.objects.get_or_create(title=good_title)
             if created or movie.rating is None:
                 movie.folder_url = location
+                movie.folder = folder
                 self.stdout.write('Cleaning up title %s => %s, path: %s \n' % (bad_title, good_title, movie.folder_url))
                 logging.debug('Cleaning up title %s => %s, path: %s ' % (bad_title, good_title, movie.folder_url))
                 self.populate_movie(movie)

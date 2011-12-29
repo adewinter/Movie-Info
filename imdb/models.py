@@ -7,7 +7,20 @@ import urlparse
 
 logging.getLogger(__name__)
 
-# Create your models here.
+class ScrapeSettings(models.Model):
+    api_url = models.URLField(help_text="API URL")
+    update_frequency = models.IntegerField(help_text="Minutes between checking for updates")
+
+class ScrapeFolder(models.Model):
+    folder_name = models.CharField(max_length=255)
+    folder_location = models.CharField(help_text="Path to Folder", max_length=255)
+    last_scraped = models.DateTimeField(null=True,blank=True)
+    date_created = models.DateTimeField(auto_created=True,auto_now=True)
+    settings = models.ForeignKey(ScrapeSettings)
+
+    def __unicode__(self):
+        return "Scrape Folder: %s. Last Scraped on: %s" % (self.folder_name, self.last_scraped)
+
 class Movie(models.Model):
     """
     """
@@ -22,6 +35,7 @@ class Movie(models.Model):
     imdb_title = models.CharField(max_length=255, blank=True, null=True)
     actors = models.CharField(max_length=255, blank=True, null=True)
     folder_url = models.CharField(max_length=350, blank=True, null=True)
+    folder = models.ForeignKey(ScrapeFolder, null=True, blank=True)
 
     def __unicode__(self):
         return "Movie: %s, Rating: %s/10" % (self.title, self.rating)
@@ -41,19 +55,7 @@ class Movie(models.Model):
         logging.info("Saved Image for Movie: %s" % self.title)
         self.save()
 
-class ScrapeSettings(models.Model):
-    api_url = models.URLField(help_text="API URL")
-    update_frequency = models.IntegerField(help_text="Minutes between checking for updates")
 
-class ScrapeFolder(models.Model):
-    folder_name = models.CharField(max_length=255)
-    folder_location = models.CharField(help_text="Path to Folder", max_length=255)
-    last_scraped = models.DateTimeField(null=True,blank=True)
-    date_created = models.DateTimeField(auto_created=True,auto_now=True)
-    settings = models.ForeignKey(ScrapeSettings)
-
-    def __unicode__(self):
-        return "Scrape Folder: %s. Last Scraped on: %s" % (self.folder_name, self.last_scraped)
 
 class NameWordsBlackList(models.Model):
     """
