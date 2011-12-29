@@ -4,3 +4,4 @@
 logs/
 media/
 static_media/
+localsettings.py
