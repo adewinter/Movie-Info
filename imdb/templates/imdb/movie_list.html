@@ -55,6 +55,7 @@ Table of Movies:
                     <th>Summary</th>
                     <th>Year</th>
                     <th>File Path</th>
+                    <th>Last Updated</th>
                 </tr>
             </thead>
             <tbody>
@@ -66,6 +67,7 @@ Table of Movies:
                     <td>{{ movie.summary }}</td>
                     <td>{{ movie.year }}</td>
                     <td>{{ movie.folder_url }}</td>
+                    <td>{{ movie.last_updated }}</td>
                 </tr>
                 {% endfor %}
             </tbody>

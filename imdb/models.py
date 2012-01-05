@@ -62,5 +62,9 @@ class NameWordsBlackList(models.Model):
         Words that should be filtered out of names
     """
     is_regex = models.BooleanField(default=False, help_text="Regex not implemented so don't check this!")
-    match_string = models.CharField(max_length=200, help_text="Words in a movie name that should be filtered out")
-    
+    match_string = models.CharField(max_length=200, help_text="Words in a movie name that should be filtered out REMEMBER TITLE IS CONVERTED TO LOWERCASE")
+    parse_order = models.IntegerField(max_length=4, default=9999, help_text="The order in which this blacklist word should be stripped relateive to other blacklist words")
+    replace_char = models.CharField(max_length=10, help_text="The character to replace the match string with. Default is blank space (' ')", default=' ')
+
+    def __unicode__(self):
+        return "Word to Strip: %s :: Order: %s" % (self.match_string, self.parse_order)

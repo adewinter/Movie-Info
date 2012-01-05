@@ -1,5 +1,6 @@
 from datetime import datetime
 from decimal import Decimal
+import re
 from urllib import urlencode
 from urllib2 import urlopen
 from django.core.management.base import BaseCommand
@@ -30,8 +31,9 @@ class Command(BaseCommand):
             bad_title = title[0]
             location = title[1]
             good_title = self.remove_crap(bad_title)
+#            self.stdout.write('%s => :::%s:::\n' % (bad_title, good_title))
             folder = title[2]
-            movie, created = Movie.objects.get_or_create(title=good_title)
+            movie, created = Movie.objects.get_or_create(title=good_title,folder=folder)
             if created or movie.rating is None:
                 movie.folder_url = location
                 movie.folder = folder
@@ -60,54 +62,15 @@ class Command(BaseCommand):
         """
             Takes in a list of words and removes crappy ones (contained in the blacklist)
         """
-        blacklist = [
-            "dvd",
-            "imdb",
-            "BD.rip",
-            " rip ",
-            "dvdrip",
-            "C100",
-            "hdtv",
-            "bluray",
-            "bdflix",
-            "mkv",
-            "DTS",
-            " hd ",
-            " wiki ",
-            " DTS ",
-            "1080p",
-            "720p",
-            "1080",
-            "720",
-            "SAINAASH",
-            "x264",
-            "5.1",
-            "HDDVD",
-            "-Septic",
-            "-esir",
-            "Newshost",
-            "-rx-",
-            "brrip",
-
-            "( )",
-            "[ ]",
-        ]
-        more_blacklist_words = NameWordsBlackList.objects.all()
+        w = words.lower()
+        blacklist = []
+        more_blacklist_words = NameWordsBlackList.objects.all().order_by('parse_order')
 
         for bword in more_blacklist_words:
             if not bword.is_regex:
-                blacklist.append(bword.match_string)
-
-        #Fianlly, append '.' and other punctuation last
-        blacklist.append('.')
-        blacklist.append('-')
-        blacklist.append('_')
-        #lowercase blacklist
-        blacklist = map(lambda x: x.lower(), blacklist)
-        w = words.lower()
-
-        for bword in blacklist:
-            w = w.replace(bword, ' ')
+                w = w.replace(bword.match_string.lower(), bword.replace_char)
+            else:
+                w = re.sub(bword.match_string.lower(), bword.replace_char, w)
 
         w = ' '.join(w.split()).title().strip()
         return w

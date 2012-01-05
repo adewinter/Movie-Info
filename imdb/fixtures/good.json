@@ -1,0 +1,580 @@
+[
+ {
+  "pk": 1,
+  "model": "imdb.scrapesettings",
+  "fields": {
+   "update_frequency": 15,
+   "api_url": "http://imdbapi.com/"
+  }
+ },
+ {
+  "pk": 1,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 6,
+   "match_string": "dvd",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 2,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 2,
+   "match_string": "imdb",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 3,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 3,
+   "match_string": "BD.rip",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 4,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 4,
+   "match_string": " rip ",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 5,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 5,
+   "match_string": "dvdrip",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 6,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 6,
+   "match_string": "C100",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 7,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 7,
+   "match_string": "hdtv",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 8,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 8,
+   "match_string": "bluray",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 9,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 9,
+   "match_string": "bdflix",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 10,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 10,
+   "match_string": "mkv",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 11,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 11,
+   "match_string": "DTS",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 12,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 12,
+   "match_string": " hd ",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 13,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 13,
+   "match_string": " wiki ",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 14,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 14,
+   "match_string": " DTS ",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 15,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 15,
+   "match_string": "1080p",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 16,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 16,
+   "match_string": "720p",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 17,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 17,
+   "match_string": "1080",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 18,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 18,
+   "match_string": "720",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 19,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 19,
+   "match_string": "SAINAASH",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 20,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 20,
+   "match_string": "x264",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 21,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 21,
+   "match_string": "5.1",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 22,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 22,
+   "match_string": "HDDVD",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 23,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 23,
+   "match_string": "-Septic",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 24,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 24,
+   "match_string": "-esir",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 25,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 25,
+   "match_string": "Newshost",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 26,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 26,
+   "match_string": "-rx-",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 27,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 1,
+   "match_string": "brrip",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 28,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 8887,
+   "match_string": "( )",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 29,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 8888,
+   "match_string": "[ ]",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 30,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 9999,
+   "match_string": ".",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 31,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 9999,
+   "match_string": "-",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 32,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 9999,
+   "match_string": "_",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 33,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 20,
+   "match_string": "repack",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 34,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 21,
+   "match_string": "rip",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 35,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 8885,
+   "match_string": "xvid",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 36,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 8884,
+   "match_string": "Dash",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 37,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 100,
+   "match_string": "flv",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 38,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 41,
+   "match_string": "ac3",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 39,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 43,
+   "match_string": "playxd",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 40,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 48,
+   "match_string": "xvid taste",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 41,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 8800,
+   "match_string": "R5",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 42,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 6,
+   "match_string": "hive-cm8",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 43,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 3,
+   "match_string": "xvid-2hd",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 44,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 80000,
+   "match_string": "0cw",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 45,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 2000,
+   "match_string": "ac3-refill",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 46,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 1000,
+   "match_string": " scr ",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 47,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 30,
+   "match_string": "-done-",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 48,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 2222,
+   "match_string": "xvid-asap",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 49,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 20,
+   "match_string": "xvid-taste",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 50,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 10,
+   "match_string": "dvdscr",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 51,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 1,
+   "match_string": "ac3-refill-newshost",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 52,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 1,
+   "match_string": ".Proper.",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 53,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": false,
+   "parse_order": 1,
+   "match_string": "xvid-medics",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 54,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": true,
+   "parse_order": 1,
+   "match_string": "s\\d{2}e\\d{2}.+",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 55,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": true,
+   "parse_order": 1,
+   "match_string": "(.+)(\\d{4}.).+",
+   "replace_char": "\\g<1>\\g<2>"
+  }
+ },
+ {
+  "pk": 56,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": true,
+   "parse_order": 1,
+   "match_string": "hdtv.+",
+   "replace_char": " "
+  }
+ },
+ {
+  "pk": 57,
+  "model": "imdb.namewordsblacklist",
+  "fields": {
+   "is_regex": true,
+   "parse_order": 1,
+   "match_string": "\\.avi",
+   "replace_char": " "
+  }
+ }
+]
