@@ -51,39 +51,40 @@
 
     
       <p>A Django app that scrapes your movies/series folder and gathers IMDB info for each movie.  The resulting data is displayed and is searchable/sortable.
-
+<br />
 Data collected and shown includes:  Movie portrait, short description, rating, year and physical location of movie on disk.</p>
     
 
     
       <h2>Dependencies</h2>
-      <p>django
-django-registration
-pil
-south
-gunicorn
-postgres
-</p>
+      <ul>
+        <li>django</li>
+        <li>django-registration</li>
+        <li>pil</li>
+        <li>south</li>
+        <li>gunicorn</li>
+        <li>postgres</li>
+      </ul>
     
 
     
       <h2>Install</h2>
       <p>Standard Django set up process. This repo is an entire project (not an app), though you could probably extract the app and from the repo and still have it work.  
-
-Once installed:
-./manage.py syncdb
-./manage.py migrate
+<br />
+Once installed: <br />
+<b>./manage.py syncdb</b><br />
+<b>./manage.py migrate</b><br />
 (follow instructions for setting up a superuser).
-
+<br /> <br />
 In your browser navigate to the admin panel.
-
+<br />
 Add a new Scrapefolders object, pointing to the folder that *contains* all your movie folders.  You will need to create a ScrapeSettings object (you can do that from the add ScrapeFolders window).  Make sure to set the API url to "http://imdbapi.com/".
-
-Now from the console run:
-./manage.py updatefromimdb
-
+<br />
+Now from the console run:<br />
+<b>./manage.py updatefromimdb</b><br />
+<br />
 This will initiate the scraping process.  It's probably best to set up this command to run as a cron job.  This job will automatically kill dead folders (e.g. if you delete a movie) and only hit the API when you have added new movies.
-
+<br />
 
 </p>
     
@@ -92,12 +93,14 @@ This will initiate the scraping process.  It's probably best to set up this comm
 
     
       <h2>Authors</h2>
-      <p>Anton de Winter (adewinter@gmail.com)<br/>      </p>
+      <p>Anton de Winter (adewinter@gmail.com)
+<br/>      </p>
     
 
     
       <h2>Contact</h2>
-      <p>Anton de Winter (adewinter@gmail.com)<br/>      </p>
+      <p>Anton de Winter (adewinter@gmail.com)
+<br/>      </p>
     
 
     <h2>Download</h2>
