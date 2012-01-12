@@ -30,6 +30,13 @@ DATABASES = {
 # system time zone.
 TIME_ZONE = 'America/Chicago'
 
+# after login (which is handled by django.contrib.auth), redirect to the
+# dashboard rather than 'accounts/profile' (the default).
+LOGIN_REDIRECT_URL = "/"
+
+LOGIN_URL = '/login/'
+REQUIRE_LOGIN_PATH = LOGIN_URL
+
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'en-us'
@@ -120,6 +127,8 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
+    'registration',
     'south',
     'imdb',
     # Uncomment the next line to enable the admin:
@@ -127,6 +136,14 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
 )
+
+ACCOUNT_ACTIVATION_DAYS=7
+EMAIL_HOST='localhost'
+EMAIL_PORT=1025
+EMAIL_HOST_USER=''
+EMAIL_HOST_PASSWORD=''
+EMAIL_USE_TLS = False
+DEFAULT_FROM_EMAIL = 'testing@example.com'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
