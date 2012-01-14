@@ -1,7 +1,8 @@
 from django.contrib import admin
-from imdb.models import Movie,NameWordsBlackList,ScrapeFolder,ScrapeSettings
+from imdb.models import Title, CachedTitle, NameWordsBlackList,ScrapeFolder,ScrapeSettings
 
-admin.site.register(Movie)
+admin.site.register(Title)
+admin.site.register(CachedTitle)
 admin.site.register(NameWordsBlackList)
 admin.site.register(ScrapeFolder)
 admin.site.register(ScrapeSettings)
